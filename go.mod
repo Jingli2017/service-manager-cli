@@ -1,4 +1,4 @@
-module github.com/Peripli/service-manager-cli
+module github.com/Jingli2017/service-manager-cli
 
 go 1.13
 
