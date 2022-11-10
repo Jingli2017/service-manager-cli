@@ -112,7 +112,9 @@ func (rbc *RegisterBrokerCmd) HideUsage() bool {
 
 func (rbc *RegisterBrokerCmd) parseCredentials() error {
 	if rbc.basicString != "" {
-		user, password, _ := strings.Cut(rbc.basicString, ":")
+		splited := strings.SplitN(rbc.basicString, ":", 2)
+		user = splited[0]
+		password = splited[1]
 		basic := types.Basic{User: user, Password: password}
 		rbc.broker.Credentials = &types.Credentials{Basic: basic}
 	}
